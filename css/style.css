@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #cbd5e1;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 40px auto;
+  padding: 0 20px;
+  flex: 1;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #475569;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+/* Painel de Regra de Segurança */
+.security-banner {
+  background-color: #1e293b;
+  color: #f8fafc;
+  padding: 16px 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-left: 5px solid #22c55e;
+}
+
+.limit-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.limit-control input {
+  width: 120px;
+  padding: 8px;
+}
+
+/* Formulário de Simulação */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+input, select {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #334155;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+input::placeholder {
+  color: #94a3b8;
+}
+
+input[type="text"] { flex: 2; min-width: 200px; }
+input[type="number"] { flex: 1; min-width: 140px; }
+input[type="time"] { flex: 1; min-width: 130px; }
+
+.btn-simular {
+  background-color: #22c55e;
+  color: #052e16;
+  font-weight: bold;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-simular:hover {
+  background-color: #16a34a;
+  color: #fff;
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.filter-btn.active {
+  background-color: #0f172a;
+  color: #22c55e;
+  font-weight: bold;
+  outline: 1px solid #22c55e;
+}
+
+/* Tabela de Logs */
+.table-wrapper {
+  background-color: #161e31;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  color: #60a5fa;
+  font-size: 0.9rem;
+  padding: 16px 20px;
+  border-bottom: 1px solid #28354f;
+}
+
+td {
+  padding: 16px 20px;
+  color: #cbd5e1;
+  border-bottom: 1px solid #1e293b;
+  font-size: 0.95rem;
+}
+
+.status {
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.status-aprovado { color: #22c55e; }
+.status-bloqueado { color: #ef4444; }
+.status-atencao { color: #f59e0b; }
+
+.btn-excluir {
+  background: transparent;
+  border: 1px solid #475569;
+  color: #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-excluir:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+footer {
+  background-color: #161e31;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 14px;
+  font-size: 0.85rem;
+  margin-top: 40px;
+}
+
+/* Ajustes de espaçamento e usabilidade para celulares */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px auto;
+    padding: 0 14px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+  }
+
+  .security-banner {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .limit-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .limit-control input {
+    width: 110px;
+  }
+
+  .form-row {
+    gap: 10px;
+  }
+
+  .form-row input,
+  .form-row select,
+  .btn-simular {
+    width: 100%;
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .filters {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+    padding: 10px 12px;
+  }
+
+  th, td {
+    padding: 12px 10px;
+    font-size: 0.82rem;
+  }
+
+  .status {
+    font-size: 0.75rem;
+  }
+
+  .btn-excluir {
+    padding: 5px 8px;
+    font-size: 0.78rem;
+  }
+
+  footer {
+    padding: 12px 10px;
+    font-size: 0.78rem;
+    margin-top: 28px;
+  }
+}

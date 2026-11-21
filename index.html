@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador Pix Noturno - Cibersegurança</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Simulador de Segurança: Pix Noturno</h1>
+    <p class="subtitle">Teste regras de bloqueio antifraude entre 20:00 e 06:00 conforme normas do Banco Central.</p>
+
+    <!-- Configuração da Política de Segurança -->
+    <div class="security-banner" id="bannerSeguranca">
+      <div>
+        <strong>Política Ativa:</strong> Bloqueio automático acima do teto entre <strong>20:00 e 05:59</strong>
+      </div>
+      <div class="limit-control">
+        <label for="limiteNoturno">Limite Noturno (R$):</label>
+        <input type="number" id="limiteNoturno" value="1000" min="100" step="100">
+      </div>
+    </div>
+
+    <!-- Formulário de Simulação de Transferência -->
+    <div class="form-row">
+      <input type="text" id="destinatario" placeholder="Destinatário / Chave Pix (Ex: Loja Eletrônicos)">
+      <input type="number" id="valor" placeholder="Valor (R$)" min="1" step="0.01">
+      <input type="time" id="horario" value="22:30" title="Horário da transação">
+      <select id="confiavel">
+        <option value="nao">Contato Desconhecido</option>
+        <option value="sim">Contato de Confiança</option>
+      </select>
+      <button class="btn-simular" onclick="simularPix()">Simular Pix</button>
+    </div>
+
+    <!-- Botões de Filtro -->
+    <div class="filters">
+      <button class="filter-btn active" onclick="filtrar('TODOS', this)">Todos</button>
+      <button class="filter-btn" onclick="filtrar('APROVADO', this)">Aprovados</button>
+      <button class="filter-btn" onclick="filtrar('BLOQUEADO', this)">Bloqueados</button>
+      <button class="filter-btn" onclick="filtrar('ATENÇÃO', this)">Análise / 2FA</button>
+    </div>
+
+    <!-- Tabela de Monitoramento -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Transação / Destinatário</th>
+            <th>Motivo / Análise de Risco</th>
+            <th>Horário / Valor</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaLogs">
+          <!-- Preenchido via JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    Aula de Cibersegurança & Web | Desenvolvido por Christian Luiz
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
